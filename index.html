@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photokaaran Studio | Photography & Videography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ===========================
+       CSS VARIABLES — EDIT COLORS HERE
+    =========================== */
+    :root {
+      --gold: #B8860B;
+      --gold-light: #DAA520;
+      --dark: #FFFFFF;
+      --dark-2: #F8F6F2;
+      --dark-3: #EEEBE4;
+      --cream: #1A1A1A;
+      --cream-2: #333333;
+      --text-light: #666666;
+      --white: #FFFFFF;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #FFFFFF;
+      color: #1A1A1A;
+      font-family: var(--font-body);
+      overflow-x: hidden;
+    }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 80px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-decoration: none;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .nav-logo .logo-main {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .nav-logo .logo-main span {
+      color: var(--gold);
+    }
+
+    .nav-logo .logo-sub {
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #999999;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #444444;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--dark) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--gold);
+      transition: all 0.3s;
+    }
+
+    /* ===========================
+       HERO / LANDING SECTION
+    =========================== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: #FDFAF5;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      padding: 80px 5% 80px 8%;
+      position: relative;
+      z-index: 2;
+      animation: fadeUp 0.9s ease both;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 4.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      color: #111111;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--gold);
+      font-style: italic;
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #666666;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+      line-height: 1.8;
+      max-width: 420px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(184,134,11,0.15);
+    }
+
+    .trust-stat { text-align: center; }
+    .trust-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .trust-lbl {
+      font-size: 0.72rem;
+      color: #888;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .trust-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(184,134,11,0.2);
+    }
+
+    .hero-right {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #FDFAF5 0%, transparent 20%),
+                  linear-gradient(to top, rgba(253,250,245,0.4) 0%, transparent 40%);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 3rem;
+      right: 3rem;
+      background: var(--gold);
+      color: #fff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(184,134,11,0.35);
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-badge .badge-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .hero-badge .badge-txt {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .hero-circle {
+      position: absolute;
+      top: -60px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,134,11,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      padding: 14px 36px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 14px 36px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover { background: rgba(201,168,76,0.1); }
+
+    /* ===========================
+       SECTION SHARED STYLES
+    =========================== */
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    .section-desc {
+      color: var(--text-light);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+    }
+
+    /* ===========================
+       PAGE 1: EARLY BOOKING OFFER
+    =========================== */
+    #offer {
+      background: linear-gradient(135deg, #FFFDF8 0%, #FDF6E8 100%);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(184,134,11,0.1);
+    }
+
+    #offer::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    #offer::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(184,134,11,0.1);
+      border: 1px solid rgba(184,134,11,0.3);
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .offer-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(184,134,11,0.15);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 50px rgba(184,134,11,0.08);
+    }
+
+    .offer-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .offer-highlight {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #111111;
+      font-style: italic;
+      margin: 1.2rem 0 1.5rem;
+      line-height: 1.4;
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .offer-steps {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+
+    .offer-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #F5F0E8;
+      color: #555555;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .offer-steps li:last-child { border-bottom: none; }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.75rem;
+      box-shadow: 0 3px 8px rgba(184,134,11,0.3);
+    }
+
+    /* ===========================
+       PAGE 2: GALLERY
+    =========================== */
+    #gallery {
+      background: var(--dark);
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--text-light);
+      padding: 10px 24px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(3n+1) { grid-row: span 2; aspect-ratio: auto; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      /* ============================
+         GALLERY IMAGES
+         Replace src="..." with your own image paths
+         Example: src="wedding1.jpg"
+      ============================ */
+    }
+
+    .gallery-item:hover img { transform: scale(1.08); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,0.8) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-label {
+      color: var(--white);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    /* Gallery category sections */
+    .gallery-category { display: none; }
+    .gallery-category.active { display: block; }
+
+    /* ===========================
+       PAGE 3: SERVICES & PLANS
+    =========================== */
+    #services {
+      background: var(--dark-2);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .services-header .section-desc { margin: 0 auto; }
+    .services-header .divider { margin: 1.5rem auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+
+    .service-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: #111111;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* Plans */
+    .plans-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .plan-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(184,134,11,0.2);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      border-radius: 4px;
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .plan-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, var(--dark-3) 100%);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 2px;
+    }
+
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: #111111;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin: 1rem 0;
+    }
+
+    .plan-price span { font-size: 1rem; color: var(--text-light); font-weight: 400; }
+
+    .plan-features {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      text-align: left;
+    }
+
+    .plan-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: var(--text-light);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .plan-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ===========================
+       PAGE 4: BOOKING FORM
+    =========================== */
+    #booking {
+      background: var(--dark);
+      position: relative;
+    }
+
+    #booking::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .booking-info {
+      position: sticky;
+      top: 100px;
+    }
+
+    .contact-details {
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    .contact-icon { color: var(--gold); font-size: 1.2rem; }
+
+    .form-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(184,134,11,0.2);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      border-radius: 4px;
+      padding: 3rem;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: #111111;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #F8F6F2;
+      border: 1px solid rgba(184,134,11,0.25);
+      border-radius: 2px;
+      padding: 12px 16px;
+      color: #1A1A1A;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .form-control:focus { border-color: var(--gold); }
+
+    .form-control option { background: #F8F6F2; color: #1A1A1A; }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 14px;
+      border: none;
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h3 { font-family: var(--font-display); color: var(--gold); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .form-success p { color: var(--text-light); }
+
+    /* ===========================
+       PAGE 5: ABOUT US
+    =========================== */
+    #about {
+      background: var(--dark-2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-img {
+      width: 100%;
+      border-radius: 4px;
+      /* ============================
+         ABOUT SECTION IMAGE
+         Replace the src below with your image
+         Example: src="studio-photo.jpg"
+      ============================ */
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    .about-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #EEEBE4;
+      border: 2px dashed rgba(184,134,11,0.3);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .about-gold-box {
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 2rem;
+      border-radius: 4px;
+      text-align: center;
+      min-width: 150px;
+    }
+
+    .about-gold-box .big-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .about-gold-box .big-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-item {
+      border-left: 3px solid var(--gold);
+      padding-left: 1rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .proprietor-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .proprietor-avatar {
+      width: 60px; height: 60px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--dark);
+      flex-shrink: 0;
+    }
+
+    .proprietor-info h4 {
+      font-family: var(--font-display);
+      color: #111111;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #F0EDE6;
+      border-top: 1px solid rgba(184,134,11,0.2);
+      padding: 3rem 5%;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .footer-tagline {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-copy {
+      color: rgba(80,70,50,0.5);
+      font-size: 0.8rem;
+    }
+
+    /* ===========================
+       ANIMATIONS
+    =========================== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .hero-right {
+        height: 50vh;
+        order: -1;
+      }
+
+      .hero-right-overlay {
+        background: linear-gradient(to bottom, rgba(253,250,245,0.3) 0%, transparent 50%);
+      }
+
+      .hero-left {
+        padding: 3rem 5%;
+      }
+
+      .hero-badge {
+        bottom: 1rem; right: 1rem;
+        padding: 0.8rem 1rem;
+      }
+
+      .offer-grid,
+      .booking-grid,
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .booking-info { position: static; }
+
+      .gallery-item:nth-child(3n+1) { grid-row: span 1; }
+
+      .about-gold-box { bottom: 1rem; right: 1rem; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px; left: 0; right: 0;
+        background: #FFFFFF;
+        flex-direction: column;
+        padding: 1rem 5%;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(184,134,11,0.2);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .hamburger { display: flex; }
+
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       NAVIGATION
+  ============================ -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <span class="logo-main">Photo<span>kaaran</span></span>
+      <span class="logo-sub">Studio &nbsp;·&nbsp; Since 2002</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#offer">Offer</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#booking" class="nav-cta">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============================
+       HERO
+  ============================ -->
+  <section class="hero" id="hero">
+    <div class="hero-circle"></div>
+
+    <!-- LEFT: Text content -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">Photography &amp; Videography</div>
+
+      <h1 class="hero-title">
+        Moments Worth<br>
+        <em>Remembering</em>
+      </h1>
+
+      <p class="hero-sub">
+        Photokaaran Studio — two decades of capturing your most precious moments across Chennai and worldwide.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#booking" class="btn-primary">Book Your Event</a>
+        <a href="#gallery" class="btn-outline">View Gallery</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-stat">
+          <div class="trust-num">500+</div>
+          <div class="trust-lbl">Events Done</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat">
+          <div class="trust-num">20+</div>
+          <div class="trust-lbl">Years Exp.</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat">
+          <div class="trust-num">2002</div>
+          <div class="trust-lbl">Est. Since</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Image -->
+    <div class="hero-right">
+      <!-- ============================
+           HERO IMAGE — replace src with your own photo
+           Example: src="hero-wedding.jpg"
+      ============================ -->
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80" alt="Wedding Photography by Photokaaran Studio"/>
+      <div class="hero-right-overlay"></div>
+      <div class="hero-badge">
+        <div class="badge-num">★ 5.0</div>
+        <div class="badge-txt">Client Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PAGE 1: EARLY BOOKING OFFER
+  ============================ -->
+  <section id="offer">
+    <div class="offer-grid">
+      <div class="fade-in">
+        <div class="offer-badge">🎁 Special Offer</div>
+        <span class="section-tag">Limited Time Deal</span>
+        <h2 class="section-title">Early Booking <em>Offer</em></h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          <!-- ============================
+               EDIT OFFER DESCRIPTION HERE
+          ============================ -->
+          Plan ahead and get rewarded! Book your event with us 3 months in advance and receive a complimentary outdoor photoshoot session — absolutely free.
+        </p>
+        <br>
+        <p class="section-desc">
+          <!-- ============================
+               EDIT ADDITIONAL DESCRIPTION HERE
+          ============================ -->
+          This is our way of saying thank you to clients who trust us early. Limited slots available — don't miss out!
+        </p>
+        <br>
+        <a href="#booking" class="btn-primary" style="display:inline-block; margin-top:1rem;">Claim This Offer</a>
+      </div>
+
+      <div class="offer-card fade-in">
+        <p style="color:var(--text-light); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase;">What You Get</p>
+        <div class="offer-highlight">
+          <!-- ============================
+               EDIT OFFER HEADLINE HERE
+          ============================ -->
+          "Book 3 months early,<br>get a FREE outdoor photoshoot!"
+        </div>
+        <ul class="offer-steps">
+          <li>
+            <span class="step-num">1</span>
+            <!-- EDIT STEP TEXT BELOW -->
+            <div><strong style="color:#111111">Book your event early</strong><br>Register your event date at least 3 months in advance</div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div><strong style="color:#111111">Confirm your booking</strong><br>Complete the booking form and pay the initial deposit</div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div><strong style="color:#111111">Get your free outdoor shoot</strong><br>Schedule your complimentary outdoor photoshoot at your convenience</div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div><strong style="color:#111111">Relive your memories</strong><br>Receive beautifully edited photos from both sessions</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PAGE 2: GALLERY
+  ============================ -->
+  <section id="gallery">
+    <div class="gallery-header fade-in">
+      <span class="section-tag">Our Work</span>
+      <h2 class="section-title">Memories We've <em>Captured</em></h2>
+      <div class="divider" style="margin:1.5rem auto;"></div>
+      <p class="section-desc" style="margin:0 auto;">
+        <!-- EDIT GALLERY DESCRIPTION HERE -->
+        From intimate weddings to grand corporate events — every frame tells a story.
+      </p>
+    </div>
+
+    <div class="gallery-tabs">
+      <!-- ADD OR REMOVE CATEGORIES AS NEEDED -->
+      <button class="tab-btn active" onclick="showCategory('wedding')">Wedding</button>
+      <button class="tab-btn" onclick="showCategory('birthday')">Birthday</button>
+      <button class="tab-btn" onclick="showCategory('babyshower')">Baby Shower</button>
+      <button class="tab-btn" onclick="showCategory('corporate')">Corporate Events</button>
+    </div>
+
+    <!-- ============================
+         WEDDING GALLERY
+         Replace image src with your own images: src="your-wedding-photo.jpg"
+    ============================ -->
+    <div class="gallery-category active" id="cat-wedding">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Wedding Ceremony</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Bridal Portraits</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Reception</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1604017011826-d3b4c23f8914?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Wedding Couple</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Celebrations</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600" alt="Wedding Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Wedding Day</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================
+         BIRTHDAY GALLERY
+         Replace image src with your own birthday event photos
+    ============================ -->
+    <div class="gallery-category" id="cat-birthday">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="Birthday Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Birthday Celebration</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600" alt="Birthday Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Birthday Party</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600" alt="Birthday Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Cake Cutting</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600" alt="Birthday Photography" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Birthday Fun</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================
+         BABY SHOWER GALLERY
+         Replace image src with your own baby shower photos
+    ============================ -->
+    <div class="gallery-category" id="cat-babyshower">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600" alt="Baby Shower" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Baby Shower</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1566004100631-35d015d6a491?w=600" alt="Baby Shower" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Mom To Be</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=600" alt="Baby Shower" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Baby Shower Party</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600" alt="Baby Shower" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Precious Moments</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================
+         CORPORATE EVENTS GALLERY
+         Replace image src with your own corporate event photos
+    ============================ -->
+    <div class="gallery-category" id="cat-corporate">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600" alt="Corporate Event" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Corporate Conference</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600" alt="Corporate Event" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Corporate Event</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600" alt="Corporate Event" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Business Meet</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=600" alt="Corporate Event" loading="lazy"/>
+          <div class="gallery-overlay"><span class="gallery-label">Team Events</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PAGE 3: SERVICES & PLANS
+  ============================ -->
+  <section id="services">
+    <div class="services-header fade-in">
+      <span class="section-tag">What We Offer</span>
+      <h2 class="section-title">Services & <em>Plans</em></h2>
+      <div class="divider"></div>
+      <p class="section-desc">
+        <!-- EDIT SERVICES DESCRIPTION HERE -->
+        We provide comprehensive photography and videography solutions for every occasion, with state-of-the-art equipment and decades of expertise.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- EDIT SERVICE CARDS — change icon, name, and description -->
+      <div class="service-card fade-in">
+        <span class="service-icon">📷</span>
+        <h3 class="service-name">Photography</h3>
+        <p class="service-desc">Professional photography for weddings, birthdays, baby showers, and corporate events. High-resolution images with expert post-processing.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🎥</span>
+        <h3 class="service-name">Videography</h3>
+        <p class="service-desc">Cinematic video coverage with professional editing, color grading, and a beautifully crafted highlight film you'll treasure forever.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🚁</span>
+        <h3 class="service-name">Drone Service</h3>
+        <p class="service-desc">Stunning aerial shots and footage with our drone service — perfect for outdoor events, grand venues, and cinematic wedding films.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🖼️</span>
+        <h3 class="service-name">Instant Photo Booth</h3>
+        <p class="service-desc">Fun, interactive photo booth with instant prints for your guests — a perfect addition to any event that everyone will love!</p>
+      </div>
+    </div>
+
+    <!-- PLANS SECTION — edit plan names, prices, and features -->
+    <div class="fade-in">
+      <h3 class="plans-title">Our <em style="font-family:var(--font-display); color:var(--gold); font-style:italic;">Packages</em></h3>
+      <div class="plans-grid">
+        <div class="plan-card">
+          <!-- EDIT PLAN NAME AND PRICE -->
+          <h4 class="plan-name">Silver</h4>
+          <p style="color:var(--text-light); font-size:0.85rem;">Starter Package</p>
+          <div class="plan-price">Custom <span>/ event</span></div>
+          <ul class="plan-features">
+            <!-- EDIT FEATURES BELOW -->
+            <li>5 Hours Photography Coverage</li>
+            <li>300+ Edited Photos</li>
+            <li>Online Gallery</li>
+            <li>1 Photographer</li>
+          </ul>
+          <a href="#booking" class="btn-outline" style="display:block; text-align:center;">Book This</a>
+        </div>
+
+        <div class="plan-card featured">
+          <div class="plan-badge">Most Popular</div>
+          <h4 class="plan-name">Gold</h4>
+          <p style="color:var(--text-light); font-size:0.85rem;">Complete Package</p>
+          <div class="plan-price">Custom <span>/ event</span></div>
+          <ul class="plan-features">
+            <li>Full Day Photography + Video</li>
+            <li>500+ Edited Photos</li>
+            <li>Cinematic Highlight Film</li>
+            <li>Drone Coverage</li>
+            <li>2 Photographers</li>
+            <li>Instant Photo Booth</li>
+          </ul>
+          <a href="#booking" class="btn-primary" style="display:block; text-align:center;">Book This</a>
+        </div>
+
+        <div class="plan-card">
+          <h4 class="plan-name">Platinum</h4>
+          <p style="color:var(--text-light); font-size:0.85rem;">Premium Package</p>
+          <div class="plan-price">Custom <span>/ event</span></div>
+          <ul class="plan-features">
+            <li>Multi-Day Coverage</li>
+            <li>Unlimited Edited Photos</li>
+            <li>Full Cinematic Film</li>
+            <li>Drone + Instant Photo Booth</li>
+            <li>3 Photographers + Videographer</li>
+            <li>Premium Album</li>
+          </ul>
+          <a href="#booking" class="btn-outline" style="display:block; text-align:center;">Book This</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PAGE 4: BOOKING FORM
+  ============================ -->
+  <section id="booking">
+    <div class="booking-grid">
+      <div class="booking-info fade-in">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Book Your <em>Event</em></h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          <!-- EDIT BOOKING INFO TEXT HERE -->
+          Fill in your details and we'll get back to you within 24 hours to confirm your booking and discuss your requirements.
+        </p>
+        <div class="contact-details">
+          <!-- EDIT CONTACT DETAILS BELOW -->
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <div style="color:#111111; font-weight:500;">Call Us</div>
+              <div>+91 97102 37835</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <div style="color:#111111; font-weight:500;">Studio Location</div>
+              <div>Heart of Chennai City, Tamil Nadu</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🌍</span>
+            <div>
+              <div style="color:#111111; font-weight:500;">Coverage Area</div>
+              <div>Chennai & Worldwide</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">⏰</span>
+            <div>
+              <div style="color:#111111; font-weight:500;">Working Hours</div>
+              <!-- EDIT HOURS HERE -->
+              <div>Mon – Sat: 9:00 AM – 7:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card fade-in">
+        <div id="formContent">
+          <h3 class="form-title">Book Your Session</h3>
+          <p class="form-subtitle">We'll confirm your booking within 24 hours</p>
+
+          <div class="form-group">
+            <label class="form-label">Your Full Name *</label>
+            <input type="text" class="form-control" id="clientName" placeholder="Enter your name" required/>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Phone Number *</label>
+              <input type="tel" class="form-control" id="clientPhone" placeholder="+91 XXXXX XXXXX" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="clientEmail" placeholder="your@email.com"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Event Type *</label>
+            <!-- ADD OR REMOVE EVENT TYPES BELOW -->
+            <select class="form-control" id="eventType" required>
+              <option value="" disabled selected>Select event type</option>
+              <option>Wedding</option>
+              <option>Birthday Party</option>
+              <option>Baby Shower</option>
+              <option>Corporate Event</option>
+              <option>Outdoor Photoshoot</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Event Date *</label>
+              <input type="date" class="form-control" id="eventDate" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Package Interest</label>
+              <select class="form-control" id="packagePref">
+                <option value="" disabled selected>Select package</option>
+                <option>Silver Package</option>
+                <option>Gold Package</option>
+                <option>Platinum Package</option>
+                <option>Custom Requirements</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Requirements & Details</label>
+            <textarea class="form-control" id="requirements" placeholder="Tell us about your event — venue, special requests, number of guests, etc."></textarea>
+          </div>
+
+          <button class="form-submit" onclick="submitForm()">
+            ✦ Submit Booking Request
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">🎉</div>
+          <h3>Booking Request Sent!</h3>
+          <p>Thank you! We'll contact you within 24 hours to confirm your booking.</p>
+          <br>
+          <p style="color:var(--gold);">Call us directly: +91 97102 37835</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PAGE 5: ABOUT US
+  ============================ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-image-wrap fade-in">
+        <!-- ============================
+             ABOUT US IMAGE
+             To add your own image, replace the div below with:
+             <img src="your-studio-photo.jpg" class="about-img" alt="Photokaaran Studio"/>
+        ============================ -->
+        <div class="about-img-placeholder">
+          <span style="font-size:3rem; margin-bottom:1rem;">📸</span>
+          <span>Add Studio / Team Photo Here</span>
+          <span style="font-size:0.8rem; margin-top:0.5rem; opacity:0.6;">Replace with: &lt;img src="your-photo.jpg"&gt;</span>
+        </div>
+        <div class="about-gold-box">
+          <div class="big-num">20+</div>
+          <div class="big-label">Years of<br>Excellence</div>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <span class="section-tag">Our Story</span>
+        <h2 class="section-title">About <em>Photokaaran</em></h2>
+        <div class="divider"></div>
+        <p class="section-desc">
+          <!-- EDIT ABOUT US TEXT HERE -->
+          Photokaaran Studio was established in 2002 with a single vision — to capture life's most beautiful moments with artistry and authenticity. Based in the heart of Chennai, we've grown into one of the city's most trusted photography and videography studios.
+        </p>
+        <br>
+        <p class="section-desc">
+          <!-- EDIT ADDITIONAL ABOUT TEXT HERE -->
+          Under the leadership of our proprietor <strong style="color:#111111;">Premnath</strong>, we've delivered world-class photography services across Chennai and worldwide. With over two decades in the business, our passion for storytelling through images has never wavered.
+        </p>
+
+        <div class="about-stats">
+          <!-- EDIT STATS BELOW -->
+          <div class="stat-item">
+            <div class="stat-number">2002</div>
+            <div class="stat-label">Established Since</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Weddings & Events</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">🌍</div>
+            <div class="stat-label">Services Worldwide</div>
+          </div>
+        </div>
+
+        <div class="proprietor-card">
+          <div class="proprietor-avatar">P</div>
+          <div class="proprietor-info">
+            <!-- EDIT PROPRIETOR INFO HERE -->
+            <h4>Premnath</h4>
+            <p>Proprietor & Lead Photographer</p>
+            <p style="color:var(--gold); margin-top:4px;">+91 97102 37835</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer>
+    <div class="footer-logo">Photokaaran Studio</div>
+    <p class="footer-tagline">
+      <!-- EDIT TAGLINE HERE -->
+      Capturing moments. Crafting memories. Since 2002.
+    </p>
+    <ul class="footer-links">
+      <li><a href="#offer">Early Booking Offer</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#booking">Book Now</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <p class="footer-copy">
+      <!-- EDIT COPYRIGHT TEXT HERE -->
+      &copy; 2024 Photokaaran Studio. All rights reserved. | Chennai, Tamil Nadu | +91 97102 37835
+    </p>
+  </footer>
+
+  <!-- ============================
+       JAVASCRIPT
+  ============================ -->
+  <script>
+    // Mobile menu toggle
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Gallery tab switching
+    function showCategory(cat) {
+      document.querySelectorAll('.gallery-category').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('cat-' + cat).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 100;
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          document.querySelectorAll('.nav-links a').forEach(a => {
+            a.style.color = '';
+            if (a.getAttribute('href') === '#' + section.id) a.style.color = 'var(--gold)';
+          });
+        }
+      });
+    });
+
+    // Form submission
+    function submitForm() {
+      const name = document.getElementById('clientName').value;
+      const phone = document.getElementById('clientPhone').value;
+      const eventType = document.getElementById('eventType').value;
+      const eventDate = document.getElementById('eventDate').value;
+
+      if (!name || !phone || !eventType || !eventDate) {
+        alert('Please fill in all required fields (Name, Phone, Event Type, Event Date).');
+        return;
+      }
+
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }
+
+    // Set min date for booking (today)
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('eventDate').min = today;
+  </script>
+</body>
+</html>
